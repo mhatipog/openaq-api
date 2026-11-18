@@ -97,7 +97,6 @@ async def fetch_sensors(q, db):
     END as summary
     , CASE
         WHEN r.value_latest IS NOT NULL
-         AND r.value_count IS NOT NULL
          AND s.data_averaging_period_seconds > 0
          AND s.data_logging_period_seconds > 0 THEN
       jsonb_build_object(
